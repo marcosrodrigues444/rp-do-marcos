@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jurassic Park</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-image: url(tyrannosaurus-rex-dinosaur-fantasy-landscape-ai-created-content-tyrannosaurus-rex-dinosaur-fantasy-landscape-design-324081557-transformed.webp);
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #333;
+    padding: 20px;
+    margin: 0;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+main {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #077a24;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+}
+
+h2 {
+    text-align: center;
+    color: #000000;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    
+}
+
+label {
+    font-weight: bold;
+}
+
+input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+button {
+    background-color: #000000;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #000000;
+}
+
+#mensagem {
+    color: rgb(251, 255, 0);
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+#nome-gerado {
+    margin-top: 15px;
+    font-size: 18px;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    text-align: center;
+}
+
+    </style>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Jurassic Park</h1>
+    </header>
+    <main>
+        <section id="criador-nome-dinossauro">
+            <h2>Criador de Nome de Dinossauro</h2>
+            <form id="nomeDinossauroForm">
+                <label for="primeira-silaba-nome">Primeira sílaba do nome:</label>
+                <input type="text" id="primeira-silaba-nome" maxlength="10"></br>
+
+                <label for="ultima-silaba-nome">Última sílaba do nome:</label>
+                <input type="text" id="ultima-silaba-nome" maxlength="10"></br>
+
+                <label for="primeira-silaba-sobrenome"></label>Primeira sílaba do sobrenome:</label>
+                <input type="text" id="primeira-silaba-sobrenome" maxlength="10"></br>
+
+                <label for="ultima-silaba-sobrenome">Última sílaba do sobrenome:</label>
+                <input type="text" id="ultima-silaba-sobrenome" maxlength="10"></br>
+
+                <button type="button" id="gerarNome">Gerar Nome</button>
+            </form>
+            <p id="mensagem"></p>
+            <p id="nome-gerado"></p>
+        </section>
+    </main>
+    <script>document.getElementById("gerarNome").addEventListener("click", function () {
+        const primeiraSilabaNome = document.getElementById("primeira-silaba-nome").value.trim();
+        const ultimaSilabaNome = document.getElementById("ultima-silaba-nome").value.trim();
+        const primeiraSilabaSobrenome = document.getElementById("primeira-silaba-sobrenome").value.trim();
+        const ultimaSilabaSobrenome = document.getElementById("ultima-silaba-sobrenome").value.trim();
+        const mensagem = document.getElementById("mensagem");
+        const nomeGerado = document.getElementById("nome-gerado");
+    
+        mensagem.textContent = "";
+        nomeGerado.textContent = "";
+    
+        // Validação dos campos
+        if (!primeiraSilabaNome || !ultimaSilabaNome || !primeiraSilabaSobrenome || !ultimaSilabaSobrenome) {
+            mensagem.textContent = "Por favor, preencha todos os campos!";
+            return;
+        }
+    
+        // Confirmação
+        const confirmar = confirm("Deseja realmente gerar o nome do dinossauro?");
+        if (confirmar) {
+            const nomeDinossauro = `${primeiraSilabaNome}${ultimaSilabaSobrenome}${primeiraSilabaSobrenome}${ultimaSilabaNome}sauro`;
+            nomeGerado.textContent = `Seu dinossauro é: ${nomeDinossauro}`;
+        }
+    });
+    </script>
+</body>
+</html>
